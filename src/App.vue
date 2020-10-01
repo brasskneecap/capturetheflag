@@ -14,7 +14,7 @@ export default {
 
   methods: {
     async loadAndStartScene() {
-      console.log(XR);
+      console.log("loadAndStateScene Called", XR);
       await XR.loadScene("scene1", "sumerian-scene-dom-id");
       XR.start("scene1");
     },

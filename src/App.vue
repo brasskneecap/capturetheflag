@@ -1,19 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div id="sumerian-scene-dom-id"></div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { XR } from "aws-amplify";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+
+  mounted() {
+    this.loadAndStartScene();
+  },
+
+  methods: {
+    async loadAndStartScene() {
+      console.log(XR);
+      await XR.loadScene("scene1", "sumerian-scene-dom-id");
+      XR.start("scene1");
+    },
+  },
+};
 </script>
 
 <style>

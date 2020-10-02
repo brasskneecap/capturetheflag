@@ -1,5 +1,8 @@
 <template>
-  <div id="sumerian-scene-dom-id"></div>
+  <div>
+    <h1>AR APP</h1>
+    <div id="sumerian-scene-dom-id" style="height: 800px; width: 500px"></div>
+  </div>
 </template>
 
 <script>
@@ -14,8 +17,15 @@ export default {
 
   methods: {
     async loadAndStartScene() {
-      console.log("loadAndStateScene Called", XR);
-      await XR.loadScene("scene1", "sumerian-scene-dom-id");
+      const progressCallback = (progress) => {
+        console.log(`Sumerian scene load progress: ${progress * 100}%`);
+      };
+
+      const sceneOptions = {
+        progressCallback,
+      };
+
+      await XR.loadScene("scene1", "sumerian-scene-dom-id", sceneOptions);
       XR.start("scene1");
     },
   },

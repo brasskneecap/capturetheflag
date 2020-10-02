@@ -1,28 +1,38 @@
 {
-  "api": {
-    "capturetehflag": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "AWS_IAM"
-          },
-          "additionalAuthenticationProviders": []
+    "api": {
+        "capturetehflag": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "AWS_IAM"
+                    },
+                    "additionalAuthenticationProviders": []
+                }
+            }
         }
-      }
+    },
+    "auth": {
+        "cognito48464cc3": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "xr": {
+        "RedFlag": {
+            "service": "Sumerian",
+            "providerPlugin": "awscloudformation"
+        },
+        "scene1": {
+            "service": "Sumerian",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "type": "cicd"
+        }
     }
-  },
-  "auth": {
-    "cognito48464cc3": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation"
-    }
-  },
-  "xr": {
-    "RedFlag": {
-      "service": "Sumerian",
-      "providerPlugin": "awscloudformation"
-    }
-  }
 }
